@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+#define INF (int) 1e9
+using namespace std;
+
+int main() {
+  int c, l, sum = 0;
+  cin >> c >> l;
+
+  while (l--) {
+    int width, length;
+    cin >> width >> length;
+    sum += (width * length * cost)
+  }
+  cout << cost << '\n';
+  return 0;
+}

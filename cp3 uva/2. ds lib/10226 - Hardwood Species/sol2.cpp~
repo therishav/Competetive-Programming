@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+
+  // int n;
+  char c;
+  cin >> c;
+  
+  while(n--) {
+    
+    for (auto it : mp) {
+      float temp = it.second;
+      temp = (temp/total) * 100;
+      cout << it.first << " " << it.second << '\n';
+    }
+    cout << '\n';
+  }
+}
+

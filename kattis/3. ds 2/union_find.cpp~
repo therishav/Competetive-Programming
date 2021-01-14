@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+void permute(int n) {
+  vector<int> perm(n);
+  for (int i = 0; i < n; i++) perm[i] = i+1;
+
+  while (next_permutation(perm.begin(), perm.end())) {
+    for (auto i : perm)
+      cout << i << " ";
+    cout << '\n';
+  }
+}
+
+void subsets(int n) {
+  for (int subset = 0; subset < (1 << n); subset++) {
+    for (int i = 0; i < n; i++) {
+      if ((subset & (1 << i)) != 0)
+	cout << i+1 << " ";
+    }
+    cout << '\n';
+  }
+}
+int main(void) {
+  subsets(4);
+  return 0;
+}

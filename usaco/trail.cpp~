@@ -1,0 +1,33 @@
+/*
+ID: dzlvocp1
+TASK: ride
+LANG: C++                 
+*/
+/* LANG can be C++11 or C++14 for those more recent releases */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    string a, b;
+    int sum1 = 0, sum2 = 0;
+
+    cin >> a;
+    cin >> b;
+
+    for (int i = 0; i < a.size(); i++) 
+      sum1 += (int)a[i] - 65;
+    sum1 %= 47;
+
+    for (int i = 0; i < b.size(); i++)
+      sum2 += (int)b[i] - 65;
+    sum2 %= 47;
+    
+    if (sum1 == sum2)
+      cout << "STAY" << '\n';
+    else
+      cout << "GO" << '\n';
+    
+    return 0;
+}

@@ -1,0 +1,35 @@
+* Todo Problem list 
+** Normal implementation problem, and basic stl ds [0/8]
+*** TODO [[https://open.kattis.com/problems/addingwords%0A][adding words]]
+    Solution only able to pass sample test case. Something very wrong with appoach.
+*** TODO [[https://open.kattis.com/problems/veci][veci]]
+*** TODO [[https://open.kattis.com/problems/basicprogramming1][basic programming 1]]
+    Not able to pass 3 test cases. WTF is the problem? 
+*** TODO [[https://open.kattis.com/problems/basicprogramming2][basic programming 2]]
+*** TODO [[https://open.kattis.com/problems/moviecollection][movie collection]]
+    got a naive working solution, but AC solution needs Binary indexed Trees(fenwick).
+*** TODO [[https://open.kattis.com/problems/dream][all just a dream]]
+*** TODO [[https://open.kattis.com/problems/trendingtopic][Trending topic]] OPT
+*** TODO [[https://open.kattis.com/problems/stogovi][stogovi]] OPT
+** DS 2 union-find, range sum, sqrt decomp, segment tree, fenwick tree [0/8]
+*** TODO [[https://open.kattis.com/problems/supercomputer][supercomputer]] 
+    classic range sum/update problem.
+    easy problem if fenwick tree is used.
+*** TODO [#A] [[https://open.kattis.com/problems/subseqhard][counting subsequences]] 3.8
+*** TODO [#B] [[https://open.kattis.com/problems/virtualfriends][virtual friends]] 4.5
+*** TODO [#C] [[https://open.kattis.com/problems/kastenlauf][kastenlauf]]
+*** TODO [[https://open.kattis.com/problems/froshweek][frosh week]]
+*** TODO [[https://open.kattis.com/problems/almostunionfind][almost union find]]
+*** TODO [[https://open.kattis.com/problems/suma][suma]] OPT
+*** TODO [[https://open.kattis.com/problems/megainversions][mega inversions]] OPT
+
+
+
+    
+* All problems list
+| Date             | Problem  | Judge  | tag   | Point/Diff | soled on your own | comment |
+|------------------+----------+--------+-------+------------+-------------------+---------|
+| <2020-11-02 Mon> | [[https://open.kattis.com/problems/dicecup][dice cup]] | Kattis | maths |        1.3 | no                |         |
+|                  |          |        |       |            |                   |         |
+
+ 

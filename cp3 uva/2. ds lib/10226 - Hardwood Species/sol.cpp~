@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+
+  int n;
+  cin >> n;
+  while(n--) {
+    int total = 0;
+    string s;
+    map<string, int> mp;
+    char c;
+    cin >> c;
+    
+    while(cin >> s) {
+      total++;
+      auto it = mp.find(s);
+      if (it == mp.end())
+	mp.insert(make_pair(s, 1));
+      else
+	it->second++;
+      // cout << s << '\n';
+    }
+    for (auto it : mp) {
+      float temp = it.second;
+      temp = (temp/total) * 100;
+      cout << it.first << " " << it.second << '\n';
+    }
+    cout << '\n';
+  }
+}

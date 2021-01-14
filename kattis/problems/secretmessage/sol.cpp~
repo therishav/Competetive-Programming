@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void roatate(vector<vector<int> > &arr) {
+
+  reverse(arr.begin(), arr.end());
+  int size = arr.size();
+
+  for(int i = 0; i < size; i++) {
+    for(int j = i+1; j < size; j++) {
+      swap(arr[i][j], arr[j][i]);
+    }
+  }
+}
+
+int main(void) {
+  int n, size;
+  string s;
+  
+  cin >> n;
+  while(n--) {
+    // getline(cin, s);
+    cin >> s;
+    cout << s << '\n';
+    size = s.size();
+    int m = 0, k = 0, pad;
+    while(m < size) {
+      m = k*k;
+      k++;
+    }
+    pad = m - size;
+    vector<vector<char> > arr(m, vector<char> (k-1)); 
+    while(pad--) 
+      s.push_back('*');
+
+    int it = 0;
+    for(int i = 0; i < k-1; i++) {
+      for(int j = 0; j < k-1; j++) {
+	arr[i][j] = s[it];
+	it++;
+      }
+    }
+
+    for(int i = 0; i < k-1; i++) {
+      for(int j = 0; j < k-1; j++) {
+	cout << arr[i][j] << " ";
+      }
+      cout << '\n';
+    }
+
+    rotate(arr);
+    cout << '\n';
+    for(int i = 0; i < k-1; i++) {
+      for(int j = 0; j < k-1; j++) {
+	cout << arr[i][j] << " ";
+      }
+      cout << '\n';
+    }
+
+    // cout << s << '\n';
+  }
+}

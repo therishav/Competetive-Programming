@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+  int t;
+  while (cin >> t) {
+    while (t--) {
+      int m, r;
+      cin >> m >> r;
+      
+    }
+  }
+  vector<int> arr;
+}

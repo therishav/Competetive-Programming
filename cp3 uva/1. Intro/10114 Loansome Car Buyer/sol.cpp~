@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+  int months, depMonths, rateM, curMonth;
+  double downPay, LoanAmt, depRate, carValue, rate;
+  map<int, double> mpRates;
+
+  while (1) {
+    cin >> months >> downPay >> LoanAmt >> depMonths;
+    carValue = LoanAmt + downPay;
+    curMonth = 0;
+
+    if (months < 0)
+      break;
+    
+    mpRates.clear();
+    while (depMonths--) {
+      cin >> rateM >> depRate;
+      mpRates.insert(pair<int, double>(rateM, depRate));
+    }
+
+    // month 0 calculation
+    rate = mpRates[curMonth];
+    carValue += downPay;
+    carValue -= (carValue * rate);
+    curMonth++;
+    printf("carValue: %f LoanAmt: %f: curMonth: %d rate: %f \n", carValue, LoanAmt, curMonth, rate);
+    
+    while (carValue < LoanAmt) { // starts calculation from month 1
+      
+      // if month exist in mpRates then rate = mpRate[curMonth]
+      if (!(mpRates.find(curMonth) == mpRates.end())) 
+	rate = mpRates[curMonth];
+      
+      carValue = carValue - (carValue * rate);
+      LoanAmt -= downPay;
+      curMonth++;
+      printf("carValue: %f LoanAmt: %f: curMonth: %d rate: %f \n", carValue, LoanAmt, curMonth, rate);
+    }
+    printf("%d months\n", curMonth);
+    
+    // printing the map
+    // for (auto it1 = mpRates.begin(); it1!=mpRates.end(); ++it1) 
+    //   cout << it1->first << "->" << it1->second << endl;
+  }
+}

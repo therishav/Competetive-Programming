@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+  int t, k, charVal;
+  char c;
+  cin >> t;
+  while (t--) {
+    cin >> k;			// k = no of paid chars
+    vector<int> table(256, 0);
+    while (k--) {
+      
+    }
+  }
+}

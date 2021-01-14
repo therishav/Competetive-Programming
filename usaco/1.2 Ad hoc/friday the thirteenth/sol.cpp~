@@ -1,0 +1,42 @@
+/*
+  ID: dzlvocp1
+  TASK: friday
+  LANG: C++                 
+*/
+/* LANG can be C++11 or C++14 for those more recent releases */
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ofstream fout ("friday.out");
+  ifstream fin ("friday.in");
+
+  int n;
+  vector<int> arr(7);
+
+  fin >> n;
+  for (int year = 1; year < 2; year++) {
+    for (int month = 1; month <= 12; month++) { // 1 = March, ..., 10 = December, 11 = Jan, 12 = Feb
+      int ytemp = year, century = 19;
+      if ((month == 11) || (month == 12)) { // prev year for jan and feb months
+	if (year == 0) {
+	  ytemp = 99;
+	  century = 18;
+	}
+	else 
+	  ytemp--;
+      }
+      int f1 = floor((2.6 * month) - 0.2);
+      int f2 = floor(year/4);
+      int f3 = floor(century/4);
+      int w = (abs(13 + f1 - (2 * century) + year + f2 + f3)) % 7;
+	
+      cout << "month:" << month
+	   << " century:" << century
+	   << " year:" << ytemp
+	   << " week day:" << w << '\n'; // 0 = sunday ... 6 = saturday.
+    }
+  }
+
+  return 0;
+}

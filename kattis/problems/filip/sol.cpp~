@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// reverse a 3digit no
+int reverse(int a) {
+  string s = "";
+  int t = 3;
+  while(t--) {
+    a
+  }
+}
+int main() {
+  string a, b;
+  cin >> a, b;
+  a = reverse(a); b = reverse(b);
+  if(s[i] == '-') {
+      cout << s[i+1];
+      i++;
+    }
+  }
+  cout << '\n';
+}

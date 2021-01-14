@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(void) {
+  int p, d, pi, ai, bi, totalA = 0, totalB = 0, wA = 0, wB = 0;
+  cin >> p >> d;
+  vector<vector<int> > arr(d, vector<int> (2, 0));
+  
+  while(p--) {
+    cin >> pi >> ai >> bi;
+    arr[pi-1][0] += ai;
+    arr[pi-1][1] += bi;
+    totalA += ai; totalB += bi;
+  }
+
+  for (int i = 0; i < d; i++) { 
+    for (int j = 0; j < 2; j++){ 
+      cout<< arr[i][j]<< " "; 
+    } 
+    cout<< "\n"; 
+  }
+
+  for (int i = 0; i < d; i++) {
+    if (arr[0] > arr[1]) {
+      int waste = 
+      cout << "A"
+    }
+    for (int j = 0; j < 2; j++){ 
+      cout<< arr[i][j]<< " "; 
+    } 
+    cout<< "\n"; 
+  }
+
+  double efc = abs(totalA )
+  cout << 
+}

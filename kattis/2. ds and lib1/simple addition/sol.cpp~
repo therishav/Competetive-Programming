@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string pad(string s, int n) {
+  n -= s.size();
+  string tmp = ""; 
+  while(n--) {
+    tmp += '0';
+    // cout << s << '\n';
+  }
+  // reverse(s.begin(), s.end());
+  tmp += s;
+  return tmp;
+}
+
+int main(void) {
+  string s1, s2;
+  vector<string> sol;
+  int a, b, carry = 0, temp;
+  cin >> s1 >> s2;
+
+  if(s2.size() > s1.size())
+    s1 = pad(s1, s2.size());
+  else if(s1.size() > s2.size())
+    s2 = pad(s2, s1.size());
+  
+  for(int i = s1.size(); i > 0; i--) {
+    a = stoi(s1[i]);
+    b = stoi(s2[i]);
+    temp = a + b + carry;
+    cout << " temp "<< temp << '\n';
+    if(temp > 9) {
+      carry = temp / 10;
+      temp %= 10;
+      sol.push_back((char)temp);
+    }
+    else {
+      carry = 0;
+      sol.push_back((char)temp);
+    }
+    // cout << "sol: " << sol << '\n';
+  }
+  sol.push_back((char)carry);
+  reverse(sol.begin(), sol.end());
+
+  cout << "s1 " << s1 << " : " << "s2 " << s2 << '\n';
+  // << " sol: " << sol  << '\n';
+  for(auto i : sol)
+    cout << i << " ";
+  cout << '\n';
+}

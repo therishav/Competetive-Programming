@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  int participants, budget, hotels, minAmt, weeks, hotelP, beds, cost;
+  while (scanf("%d%d%d%d", &participants, &budget, &hotels, &weeks)==4) {
+    printf("%d%d%d%d", participants, budget, hotels, weeks); 
+  }
+  
+}
+  
+
+
+
+

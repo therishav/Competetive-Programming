@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+  int n;
+  double total = 0;
+  cin >> n;
+  while(n--) {
+    double n, m;
+    cin >> m >> s;
+    total += m/(n*60);
+  }
+  cout <<
+  
+  return 0;
+}

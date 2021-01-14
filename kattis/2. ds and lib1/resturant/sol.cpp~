@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+
+  int n, m;
+  string act;
+
+  while (true) {
+    cin >> n;
+    if (n == 0)
+      break;
+
+    int M = 0;
+    vector<string> type;	// stores Take or drop and pile no.
+    vector<int> dishes;		// stores no of dishes
+    unordered_map<vector<string>, vector<int>> mp; // stores order type ---> no of plates
+    queue<unordered_map<vector<string>, vector<int>>> action;
+    
+    while (n--) {
+      type.clear();
+      dishes.clear();
+      mp.clear();
+      
+      cin >> act >> m;
+      if (act == "DROP") {
+	type.push_back("DROP");
+	type.push_back("2");
+	dishes.push_back(m);
+	mp[type] = dishes;
+	action.push_back(mp);
+	M += m;
+      }
+
+      else if (act == "TAKE") {
+	type.push_back("MOVE");
+	type.push_back("2->1");
+	dishes.push_back(M);
+	M = 0;
+	type.push_back("TAKE");
+	type.push_back("1");
+	dishes.push_back(m);
+	total[type] = dishes;
+	action.push_back(total);
+      }
+    }
+    for (int i = 0; i < action.size(); i++) {
+      cout << action.front() << '\n';
+      action.pop();
+    }
+  }
+  cout << '\n';
+}

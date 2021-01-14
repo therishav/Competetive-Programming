@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+#define INF (int) 1e9
+using namespace std;
+
+int main() {
+  int n;
+  cin >> s;
+  vector<int> arr;
+
+  
+  return 0;
+}

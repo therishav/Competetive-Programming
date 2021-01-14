@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  int participants, budget, hotels, minAmt, weeks, hotelP, beds, cost;
+  while (cin >> participants >> budget >> hotels >> weeks) {
+    minAmt = INT_MAX;
+    while (hotels--) {
+      cin >> hotelP;
+      // cout << hotelP << '\n';
+
+      cost = participants * hotelP;
+      if (cost <= budget) {
+	while (weeks--) {
+	  cin >> beds;
+	  if ((beds >= participants) && (minAmt > cost)) {
+	    minAmt = cost;
+	    cout << minAmt << '\n';
+	    break;
+	  }
+	}
+      }
+    }
+    minAmt == INT_MAX ? printf("stay home\n") : printf("%d\n", minAmt);
+  }
+}

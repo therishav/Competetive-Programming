@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(void) {
+  int w, p, temp;
+  vector<int> l;
+  vector<int> sol;
+  
+  cin >> w >> p;
+  while(p--) {
+    cin >> temp;
+    l.push_back(temp);
+  }
+  for(auto i : l)
+    cout << i << " ";
+  cout << '\n';
+}

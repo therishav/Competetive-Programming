@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define printV(arr) for (auto i : arr) cout << i << " "; cout << '\n';
+
+int main(void) {
+  int n;
+  while (cin >> n) {
+    vector<int> arr;
+    while (n--
+  }
+}

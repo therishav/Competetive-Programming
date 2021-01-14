@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+  int n, q, y;
+  string c;
+  map<string, vector<int>> mp1;
+  cin >> n;
+  while(n--) {
+    cin >> c >> y;
+    mp1[c].push_back(y);
+  }
+  // prints the elements 
+  cout << "Elements in mp1 are\n"; 
+  cout << "KEY\tELEMENT\n"; 
+  for (auto itr = mp1.begin(); itr != mp1.end(); ++itr) { 
+    cout << itr->first << '\t';
+	 // << '\t'; << itr->second << '\n';
+    for (auto itr2 = mp1->second.begin(); itr2 != mp1->second.end(); itr2++) {
+      cout << *itr2 << " ";
+    }
+    cout << '\n';
+  } 
+}

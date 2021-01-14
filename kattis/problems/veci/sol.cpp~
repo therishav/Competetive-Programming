@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+  int n, lim = 1;
+  string s, s2;
+  stringstream ss;
+  bool flag = false;
+  
+  cin >> n;
+  ss << n;
+  ss >> s;
+  cout << s.size() << '\n';
+  sort(s.begin(), s.end());
+  cout << s << '\n';
+  for (int i = 0; i < s.size(); i++)
+    lim *= 10;
+
+  for (int i = n; i < lim; i++) {
+    stringstream ss2;
+    ss2 << i;
+    ss2 >> s2;
+
+    // cout << s2 << '\n';
+  }
+  
+  // if (flag)
+  //   cout << s2 << '\n';
+  // else
+  //   cout << 0 << '\n';
+
+  // for (auto i : mp1)
+  //   cout << i.first << ":" << i.second << " ";
+  // cout << '\n';
+}

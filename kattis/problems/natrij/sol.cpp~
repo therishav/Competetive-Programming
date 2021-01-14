@@ -1,0 +1,14 @@
+// hint: convert hh:mm:ss to seconds; make sure the second time is larger than the first time; corner case: 24:00:00
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(void) {
+  int Dh, Dm, Ds, Ch, Cm, Cs;
+  char c;
+  cin >> Ch >> Cm >> Cs;
+  cin >> Dh >> Dm >> Ds;
+
+  cout << Dh << c << Dm << c  << Ds << '\n';
+}

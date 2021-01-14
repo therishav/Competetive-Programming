@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+  int n;
+  string str;
+  cin >> n;
+
+  while(n--) {
+    cin.ignore();
+    getline(cin, str);
+    cout << str << '\n';
+  }
+}

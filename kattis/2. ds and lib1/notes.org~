@@ -1,0 +1,20 @@
+* example problems
+1. simpleaddition: bigInteger problem
+2. backspace: list queue/deque
+3. grandpa bernie: use unordered_map plus (sorted) vector
+
+
+problems
+solve some of the following problems on kattis. you need 3 points to get full score.
+
+    Deduplicating files (1 point)
+    Working at the Restaurant (1 point)
+    Adding words (1 point)
+    All Just A Dream (1 point)
+    Movie collection (1 point)
+
+Bonus problems
+If you want a challenge, you can try solving the following bonus problems.
+
+    Trending Topic
+    Stogovi

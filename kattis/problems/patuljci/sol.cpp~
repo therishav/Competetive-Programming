@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+#define INF (int) 1e9
+using namespace std;
+
+int main() {
+  int n, sum = 0;
+  vector<int> arr;
+  for (int i = 0; i < 9; i++) {
+    cin >> n;
+    arr.push_back(n);
+    sum += n;
+  }
+  return 0;
+}

@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+#define print(a, b) cout << a << " : " << b << " | ";
+#define nl cout << '\n';
+#define rep(i, a, b) for (int i = a; i < b; i++)
+#define printV(arr) for (auto i : arr) cout << i << " "; cout << '\n';
+
+void solve() {
+  
+}
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--)
+    solve();
+}
+
+

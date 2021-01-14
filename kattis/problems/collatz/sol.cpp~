@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+
+  int a, b;
+
+  while(true) {
+    cin >> a >> b;
+    if((a == 0) && (b == 0))
+      break;
+
+    vector<int> arr1, arr2;
+    bool flag1 = true, flag2 = true;
+    
+    arr1.push_back(a);
+    arr2.push_back(b);
+    
+    while(flag1 || flag2) {
+      if(a == 1)
+	flag1 = false;
+      if(b == 1)
+	flag2 = false;
+      
+      if(flag1) {
+	if((a % 2) == 0) 
+	  a = a/2;
+	else
+	  a = (3*a) + 1;
+	arr1.push_back(a);
+      }
+      
+      if(flag2) {
+	if((b % 2) == 0) 
+	  b = b/2;
+	else
+	  b = (3*b) + 1;
+	arr2.push_back(b);
+      }
+    }
+
+    for(auto i : arr1)
+      cout << i << " ";
+    cout << '\n';
+
+    for(auto i : arr2)
+      cout << i << " ";
+    cout << '\n';
+  }
+}
