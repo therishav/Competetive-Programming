@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main(void) {
+  string s;
+  map<char, int> mp;
+  cin >> s;
+
+  for (auto i : s)
+    mp[i]++;
+  int count = mp.size();
+  string str;
+  for (auto i : mp) {
+    cout << i.first << " : " << i.second << '\n';
+    str.push_back(i.first);
+  }
+  cout << count << '\n';
+  cout << str << '\n'; 
+}

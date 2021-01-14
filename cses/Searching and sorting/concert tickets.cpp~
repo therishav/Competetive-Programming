@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+#define printArr(A) for(auto i : A) cout << i << " "; cout << '\n';
+using namespace std;
+
+typedef long long ll;
+
+int main(void) {
+  ll n, m, h, t;
+  cin >> n >> m;
+  vector<ll> arr;
+  while (n--) {
+    cin >> h;
+    arr.push_back(h);
+  }
+  
+}

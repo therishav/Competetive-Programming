@@ -1,0 +1,4 @@
+YNNN
+NYNN
+NYYN<- it should be Y (2, 3)
+NNYY

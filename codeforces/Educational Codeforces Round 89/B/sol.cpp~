@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+  int t, a, b, ans;
+
+  cin >> t;
+  while (t--) {
+    cin >> a >> b; 		// a = sticks and b = diamonds.
+    ans = 0;
+    
+    if ((a == 0) || (b == 0))
+      cout << ans << '\n';
+
+    else if (abs(a-b) == 1)
+      cout << (max(a, b) / 2) + 1 << '\n';
+    
+    else if (a > b) 			// make shovels
+      cout << a / 2 << '\n';
+    
+    else  // make swords
+      cout << b / 2 << '\n';
+    }
+  return 0;
+}
+

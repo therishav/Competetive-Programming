@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+  int n, prev, curr, diff;
+  vector<int> arr;
+  for (int i = 0; i < n; i++) {
+    cin >> curr;
+    arr.push_back()
+  }
+  
+}

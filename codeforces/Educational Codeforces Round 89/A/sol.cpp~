@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+  int t, a, b;
+  while (t--) {
+    cin >> a >> b; 		// a = sticks and b = diamonds.
+
+    if ((a == 0) || (b == 0))
+      cout << 0 << '\n'
+  }
+}

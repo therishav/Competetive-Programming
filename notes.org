@@ -1,0 +1,3 @@
+* Maths
+** Modular arithmetic
+   [[https://codeforces.com/blog/entry/72527][CF blog modular arithmetic for beginners]]

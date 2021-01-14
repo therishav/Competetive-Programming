@@ -1,0 +1,56 @@
+* chapter 1 Introduction
+- sum
+- algorithm
+- bit strings
+- volume
+- week day
+
+* chapter 2 Time complexcity
+- longest playback --> repetitions
+- missing --> missing number
+- spiral --> number spiral
+- ratsut --> two knights
+- factorial --> trailing zeros
+  
+* ch 3 sorting
+- resturant --> [[https://cses.fi/problemset/task/1619][resturant customers]]
+- housing --> [[https://cses.fi/problemset/task/1084][apartment]]
+- Amusement part --> [[https://cses.fi/problemset/task/1090][ferris wheel]]
+- factory --> [[https://cses.fi/problemset/task/1620][factory machines]]
+- order --> 
+- partition --> [[https://cses.fi/problemset/task/1085][array division]]
+
+* ch 4 data structures
+- table --> 
+- barn -->
+- evening milking -->
+- concert -->
+- stick -->
+
+* ch5 complete search
+- strings -->
+- apples -->
+- chessboard -->
+- blocks -->
+- grid -->
+- sum -->
+
+* ch6 greedy algorithm
+- movies -->
+- tasks -->
+- boards -->
+- towers -->
+- books -->
+- alijono -->
+- hotel -->
+- club -->
+
+* ch 7 dynamic programming
+- nopat -->
+- reset -->
+- grid -->
+- editing -->
+- antique store -->
+- equal division -->
+- projects -->
+

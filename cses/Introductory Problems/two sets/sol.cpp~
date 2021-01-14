@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define printA(A) for(auto i : A) cout << i << " "; cout << '\n';
+typedef long long ll;
+
+int main(void) {
+  int n, sum;
+  vector<int> ar1;
+  vector<int> ar2;
+  cin >> n;
+  sum = (n * n+1) / 2;
+  if (n <= 2)
+    cout << "NO" << '\n'; 
+  else if (n % 2 != 0)
+    while(n--) {
+      if (n <= sum/2) {
+	sum -= n;
+	ar1.push_back(n);
+      }
+      else
+	ar2.push_back(n);
+    }
+  else {
+    if (n/2 % 2 == 0) {
+      for (int i = 1; i <= n/2; i+=2) {
+	int j = i+1;
+	ar1.push_back(i);
+	ar2.push_back(j);
+      }
+      for (int i = (n/2)+1; i <= n; i+=2) {
+	int j = i+1;
+	ar1.push_back(j);
+	ar2.push_back(i);
+      }
+    }
+    else {
+      int sum1 = 0, sum2 = 0; 
+      for (int i = 1; i <= (n/2)-1; i+=2) {
+	int j = i+1;
+	sum1 += i; sum2 += j
+	ar1.push_back(i);
+	ar2.push_back(j);
+      }
+      for (int i = (n/2)+2; i <= n; i+=2) {
+	int j = i+1;
+	sum1 += j; sum2 += i;
+	ar1.push_back(j);
+	ar2.push_back(i);
+      }
+      if (sum1 == sum2)
+	;
+      else if
+    }
+  }
+  return 0;
+}
