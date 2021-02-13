@@ -1,0 +1,411 @@
+* Warmup
+** Easy
+*** [[https://www.hackerrank.com/challenges/solve-me-first/problem][Solve me first]]
+    #+begin_src c++
+      int solveMeFirst(int a, int b) {
+        // Hint: Type return a+b; below:
+        return a+b;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/simple-array-sum/problem][Simple Arary sum]]
+    #+begin_src python 3
+      def simpleArraySum(ar):
+          #
+          # Write your code here.
+          #
+          n = len(ar)
+          sum = 0
+          for i in range(0, n):
+              sum = sum + ar[i]
+          return sum
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/compare-the-triplets/problem][Compare the triplets]]
+    #+begin_src c++
+      // Complete the compareTriplets function below.
+      vector<int> compareTriplets(vector<int> a, vector<int> b) {
+        vector<int> rating(2, 0);
+        int point = 1;
+        for (int i=0; i<3; i++) {
+          if (a[i] > b[i]) {
+            rating[0] += point;
+          }
+          if (a[i] < b[i]) {
+            rating[1] += point;
+          }
+        }
+
+        return rating;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/a-very-big-sum/problem][A very big sum]]
+    #+begin_src c++
+      // Complete the aVeryBigSum function below.
+      long aVeryBigSum(vector<long> ar) {
+          long sum = 0;
+          for (int i=0; i<ar.size(); i++) {
+              sum += ar[i];
+          }
+          return sum;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/diagonal-difference/problem][Diagonal difference]]
+    #+begin_src c++
+      int diagonalDifference(vector<vector<int>> arr) {
+        int ltor = 0, rtol = 0, n = arr.size() - 1;
+        for (int i=0; i<n+1; i++) {
+          ltor += arr[i][i];
+          rtol += arr[i][n-i];
+        }
+        return abs((ltor - rtol));
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/plus-minus/problem][Plus minus]]
+    #+begin_src c++
+      // Complete the plusMinus function below.
+      void plusMinus(vector<int> arr) {
+        int n = arr.size();
+        double pos = 0, neg = 0, zero = 0;
+        for (int i = 0; i < n; i++) {
+          if (arr[i] > 0)
+            pos++;
+          else if (arr[i] < 0)
+            neg++;
+          else
+            zero++;
+        }
+        cout << fixed << setprecision(6) << pos/n << '\n' << neg/n <<  '\n' << zero/n << '\n';
+
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/staircase/problem][Staicase]]
+    #+begin_src c++
+      void staircase(int n) {
+        for (int i = 1; i <= n; i++) {
+          int sp = n-i, ch = i;
+          while (sp--)
+            cout << " ";
+
+          while (ch--)
+            cout << "#";
+
+          cout << '\n';
+        }
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/mini-max-sum/problem][Min max sum]]
+    #+begin_src c++
+      void miniMaxSum(vector<int> arr) {
+        int n = arr.size();
+        long long min = 0, max = 0;
+        sort(arr.begin(), arr.end());
+        for (int i = 0; i < 4; i++)
+          min += arr[i];
+
+        for (int i = n-1; i > n-5; i--)
+          max += arr[i];
+
+        cout << min << " " << max << '\n';
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/birthday-cake-candles/problem][Birthday cake candles]]
+    #+begin_src c++
+      int birthdayCakeCandles(vector<int> candles) {
+        int count = 0, mx, n = candles.size();
+        sort(candles.begin(), candles.end());
+        mx = candles[n-1];
+        for (int i = n-1; i >= 0; i--) {
+          if (candles[i] == mx)
+            count++;
+          else
+            break;
+        }
+        return count;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/time-conversion][Time conversion]]
+    #+begin_src c++
+      string timeConversion(string s) {
+        /*
+         ,* Write your code here.
+         ,*/
+        int sh = 0, mh = 0;
+        bool am = true;
+
+        if (s[8] == 'P')
+          am = false;
+        if (s[0] == '1') {
+          sh = 10;
+          sh += s[1]-'0';
+        }
+        else
+          sh = s[1]-'0';
+        // cout << "sh: " << sh << '\n';
+        if (am) {
+          if (sh == 12)
+            mh = 0;
+          else
+            mh = sh;
+        }
+        else {
+          if (sh == 12)
+            mh = 12;
+          else
+            mh = 12 + sh;
+        }
+        string ans = "";
+        string mh1 = to_string(mh);
+        if (mh < 10) {
+          ans += "0";
+          ans += mh1;
+        }
+        else
+          ans += mh1;
+        for (int i = 2; i < s.size()-2; i++)
+          ans += s[i];
+        // cout << "ans: " << ans << '\n';
+        return ans;
+      }
+    #+end_src
+* Implementation
+** Easy
+*** [[https://www.hackerrank.com/challenges/grading/problem][Grading students]]
+    #+begin_src c++
+      vector<int> gradingStudents(vector<int> grades) {
+        int n = grades.size();
+        vector<int> newGrades(n);
+        for (int i = 0; i < n; i++) {
+          int g = grades[i];
+          if (g >= 38) {
+            int mlt = g;
+            while (true) {
+              mlt++;
+              if (mlt % 5 == 0)
+                break;
+            }
+            if ((mlt - g) < 3)
+              newGrades[i] = mlt;
+            else
+              newGrades[i] = g;
+          }
+          else
+            newGrades[i] = g;
+        }
+        return newGrades;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/apple-and-orange/problem][Apple and orange]]
+    #+begin_src c++
+      void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vector<int> oranges) {
+        int ca = 0, co = 0, tmp;
+        // calculate apple coordinates
+        for (int i = 0; i < apples.size(); i++) {
+          apples[i] += a;
+          tmp = apples[i];
+          if ((tmp >= s) && (tmp <= t))
+            ca++;
+        }
+        // calculate orange coordinates
+        for (int i = 0; i < oranges.size(); i++) {
+          oranges[i] += b;
+          tmp = oranges[i];
+          if ((tmp <= t) && (tmp >= s))
+            co++;
+        }
+        cout << ca << '\n' << co << '\n';
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/kangaroo/problem][Number line jumps]]
+    #+begin_src c++
+      string kangaroo(int x1, int v1, int x2, int v2) {
+        bool flag = true;
+        while (true) {
+          if (x1 == x2) {
+            flag = true;
+            break;
+          }
+          else if (((x1 < x2) && (v1 <= v2)) || ((x1 > x2) && (v1 >= v2))) {
+            flag = false;
+            break;
+          }
+          x1 += v1;
+          x2 += v2;
+          cout << x1 << " " << x2 << '\n';
+        }
+
+        if (flag)
+          return "YES";
+        else
+          return "NO";
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/between-two-sets/problem][Between two sets]]
+    #+begin_src c++
+      int getTotalX(vector<int> a, vector<int> b) {
+        // value lies between max a and max b.
+        int ma, mb, count = 0;
+        ma = *max_element(a.begin(), a.end());
+        mb = *max_element(b.begin(), b.end());
+
+        for (int i = ma; i <= mb; i++) {
+          bool one = true, two = true;
+          for (int j = 0; j < a.size(); j++) {
+            if (i % a[j] != 0) {
+              one = false;
+              break;
+            }
+          }
+          if (one) {
+            for (int j = 0; j < b.size(); j++) {
+              if (b[j] % i != 0) {
+                two = false;
+                break;
+              }
+            }
+            if (two) {
+              // cout << i << '\n';
+              count++;
+            }
+          }
+        }
+        return count;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem][Breaking the record]]
+    #+begin_src c++
+      vector<int> breakingRecords(vector<int> scores) {
+        vector<int> ans(2);
+        int mi = scores[0], mx = scores[0];
+
+        for (int i = 1; i < scores.size(); i++) {
+          if (mi > scores[i]) {
+            ans[1]++;
+            mi = scores[i];
+          }
+          if (mx < scores[i]) {
+            ans[0]++;
+            mx = scores[i];
+          }
+        }
+        return ans;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/the-birthday-bar/problem][Array subdivison]]
+    #+begin_src c++
+      int birthday(vector<int> s, int d, int m) {
+        int count = 0;
+        for (int i = 0; i < s.size(); i++) {
+          int sum = s[i], len = 1;
+          for (int j = i+1; j < s.size(); j++) {
+            sum += s[j];
+            len++;
+            if (sum == d && len == m)
+              break;
+          }
+          if (sum == d && len == m)
+            count++;
+        }
+        return count;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/divisible-sum-pairs/problem][Divisible sum pairs]]
+    #+begin_src c++
+      int divisibleSumPairs(int n, int k, vector<int> ar) {
+        int count = 0;
+        for (int i = 0; i < ar.size()-1; i++) {
+          for (int j = i+1; j < ar.size(); j++) {
+
+            if ((ar[i]+ar[j]) % k == 0) {
+              // cout << ar[i] << " " << ar[j] << '\n';
+              count++;
+            }
+          }
+        }
+        return count;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/migratory-birds/problem][Migratory birds]]
+    #+begin_src c++
+      int migratoryBirds(vector<int> arr) {
+        unordered_map<int, int> mp;
+        int minId = INT_MAX, max_count = INT_MIN;
+        for (int i = 0; i < arr.size(); i++)
+          mp[arr[i]]++;
+
+        for (auto i : mp) {
+          if (i.second > max_count) {
+            max_count = i.second;
+            minId = i.first;
+          }
+          else if (i.second == max_count) {
+            if (minId > i.first)
+              minId = i.first;
+          }
+        }
+        return minId;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/bon-appetit/problem][Bill Division]]
+    #+begin_src c++
+      void bonAppetit(vector<int> bill, int k, int b) {
+        int nbill = 0;
+        for (int i = 0; i < bill.size(); i++) {
+          if (i != k) 
+            nbill += bill[i];
+        }
+        nbill /= 2;
+        if (nbill == b)
+          cout << "Bon Appetit" << '\n';
+        else
+          cout << (b - nbill) << '\n';
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/sock-merchant/problem][Sales by match]]
+    #+begin_src c++
+      int sockMerchant(int n, vector<int> ar) {
+        map<int, int> mp;
+        int pair = 0;
+        for (int i = 0; i < ar.size(); i++) {
+          mp[ar[i]]++;
+        }
+        for (auto i : mp) {
+          pair += i.second / 2;
+        }
+        return pair;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/drawing-book/problem][Drawing book]]
+    #+begin_src c++
+      int pageCount(int n, int p) {
+        /*
+         ,* Write your code here.
+         ,*/
+        int pflips, flipf = 0, flipb = 0;
+        pflips = n / 2;
+    
+        // we read a page and always flips an odd no page after reading it.
+        // forward flips
+        for (int i = 1; i <= n; i++) {
+          if (i == p)
+            break;
+          else {
+            if (i % 2 != 0)
+              flipf++;
+          }
+        }
+        for (int i = n; i >= 1; i--) {
+          if (i == p)
+            break;
+          else {
+            if (i % 2 == 0)
+              flipb++;
+          }
+        }
+        return min(flipb, flipf);
+      }
+    #+end_src

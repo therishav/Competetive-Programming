@@ -1,0 +1,424 @@
+* Arrays
+** Easy
+*** [[https://www.hackerrank.com/challenges/arrays-ds/problem][Arrays - DS]]
+    #+begin_src c++
+      vector<int> reverseArray(vector<int> a) {
+          int len = a.size()-1, i = 0, temp;
+
+          while(i < (len)) {
+              temp = a[i];
+              a[i] = a[len];
+              a[len] = temp;
+              i++; len--;
+          }
+          return a;
+
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/2d-array/problem][2D Array - DS]]
+    #+begin_src c++
+      vector<int> reverseArray(vector<int> a) {
+          int len = a.size()-1, i = 0, temp;
+
+          while(i < (len)) {
+              temp = a[i];
+              a[i] = a[len];
+              a[len] = temp;
+              i++; len--;
+          }
+          return a;
+
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/dynamic-array/problem][Dynamic Array]]
+    #+begin_src c++
+      vector<int> dynamicArray(int n, vector<vector<int>> queries) {
+
+          vector<int> seqList;
+          vector<vector<int>> list(n);
+          int q, x, y, lastAnswer, seq, value;
+
+          for(int i=0; i<queries.size(); i++) {
+
+              q = queries[i][0];
+              x = queries[i][1];
+              y = queries[i][2];
+
+              switch(q) {
+                  case 1:
+                      seq = ((x ^ lastAnswer) % n);
+                      list[seq].push_back(y);
+                      break;
+
+                  case 2:
+                      seq = ((x ^ lastAnswer) % n);
+                      value = (y % list[seq].size());
+                      lastAnswer = list[seq][value];
+                      seqList.push_back(lastAnswer);
+                      cout << lastAnswer << endl;
+                      break;
+              }
+          }
+          return seqList;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/array-left-rotation/submissions/code/problem][Left Rotation]]
+    #+begin_src c++
+      vector<int> rotateLeft(int d, vector<int> arr) {
+          int newIndex, n = arr.size();
+          vector<int> result(n);
+
+          for(int i=0; i<n; i++) {
+              newIndex = (i + (n - d)) % n;
+              result[newIndex] = arr[i];
+          }
+
+          return result;
+      }
+    #+end_src
+** Medium
+*** [[https://www.hackerrank.com/challenges/sparse-arrays/problem][Sparese Arrays]]
+    #+begin_src c++
+      vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
+        vector<int> result(queries.size(), 0);
+
+        for(int i=0; i<queries.size(); i++) {
+          for(int j=0; j<strings.size(); j++) {
+            if (queries[i] == strings[j])
+              result[i] += 1;
+          }
+        }
+        return result;
+      }
+
+    #+end_src
+** Hard
+*** [[https://www.hackerrank.com/challenges/crush/problem][Array Manipulation]]
+    #+begin_src c++
+      long arrayManipulation(int n, vector<vector<int>> queries) {
+        vector<long> outputArr(n+2, 0);
+
+        for (int i=0; i<queries.size(); i++) {
+          int a = queries[i][0];
+          int b = queries[i][1];
+          int k = queries[i][2];
+          outputArr[a] += k;
+          outputArr[b+1] -= k;
+        }
+        // add each element with its previous element to get the final          state of output array
+        for (int i=1; i<outputArr.size(); i++) {
+          outputArr[i] = outputArr[i] + outputArr[i-1];
+        }
+        // print outputArr
+        // cout << "outputArr : " << endl;
+        // for (int i : outputArr) {
+        //     cout << i << " ";
+        // }
+        // cout << endl;
+        // return max element of outputArr
+        return *max_element(outputArr.begin(), outputArr.end());
+
+      }
+    #+end_src
+* Linked List
+** Easy
+*** [[https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list/problem][Print The elements of a Linked List]]
+    #+begin_src c++
+      void printLinkedList(SinglyLinkedListNode* head) {
+        SinglyLinkedListNode *t = head;
+        while (t != NULL) {
+          cout << t->data << endl;
+          t = t->next;
+        }
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list][Insert a node at the tail of a linked list]]
+    #+begin_src c++
+      SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
+
+        SinglyLinkedListNode* temp = head;
+        SinglyLinkedListNode* n = new SinglyLinkedListNode(data);
+        if (head != NULL) {
+          while (temp->next != NULL) {
+            temp = temp->next;
+          }
+
+          temp->next = n;
+          n->next = NULL;
+          return head;
+        }
+        else {
+          temp = n;
+          temp->next = NULL;
+          return temp;
+        }
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list/problem][Insert a node at the head of a linked list]]
+    #+begin_src c++
+      SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) {
+
+        SinglyLinkedListNode *temp = llist;
+        SinglyLinkedListNode *n = new SinglyLinkedListNode(data);
+
+        if (temp != NULL) {
+          n->next = temp;
+          temp = n;
+          return temp;
+        }
+        else {
+          temp = n;
+          temp->next = NULL;
+          return temp;
+        }
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list][Insert a node at a specific position in a linked list]]
+    #+begin_src c++
+      SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
+
+        SinglyLinkedListNode* temp_prev = head;
+        SinglyLinkedListNode* temp;
+        SinglyLinkedListNode* n = new SinglyLinkedListNode(data);
+        int pos = 0;
+
+        if(temp_prev != NULL) {
+          while(pos != position-1) { temp_prev = temp_prev->next; pos++; }
+          n->next = temp_prev->next;
+          temp_prev->next = n;
+          // return head;
+        }
+        else {
+          temp = n;
+          temp->next = NULL;
+          return temp;
+        }
+        return head;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem][Delete a node]]
+    #+begin_src c++
+      SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
+
+        SinglyLinkedListNode* temp_prev;
+        SinglyLinkedListNode* temp = head;
+        int pos = 0;
+
+        while(pos != position) {
+          temp_prev = temp;
+          temp = temp_prev->next;
+          pos++;
+        }
+        if (position == 0) {
+          temp = temp->next;
+          return temp;
+        }
+        else if(temp->next != NULL) {
+          temp_prev->next = temp->next;
+        }
+
+        return head;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem][Print in reverse]]
+    #+begin_src c++
+      void reversePrint(SinglyLinkedListNode* head) {
+        /*
+            Trying to recursively reverse print a linked list
+        ,*/
+        if (head == NULL) {
+          return;
+        }
+        else {
+          reversePrint(head->next);
+          printf("%d\n", head->data);
+        }
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/reverse-a-linked-list/problem][Reverse a Linked List]]
+    #+begin_src c++
+      SinglyLinkedListNode* reverse(SinglyLinkedListNode* head) {
+
+        SinglyLinkedListNode *current, *prev, *next;
+        current = head;
+        prev = NULL;
+        while (current != NULL) {
+          next = current->next;
+          current->next = prev;
+          prev = current;
+          current = next;
+        }
+        head = prev;
+        return head;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/compare-two-linked-lists/problem][Compare two linked list]]
+    #+begin_src c++
+      bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+
+        while ((head1 != NULL) && (head2 != NULL)) {
+
+          if (head1->data != head2->data)
+            return false;
+
+          head1 = head1->next;
+          head2 = head2->next;
+        }
+        return (head1 == NULL && head2 == NULL);
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists/problem][Merge two sorted linked list]]
+    #+begin_src c++
+      SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+
+        SinglyLinkedListNode *new_head = NULL, *sorting = NULL;
+
+        if (head1 == NULL) return head2;
+        if (head2 == NULL) return head1;
+
+        if (head1 && head2) {
+
+          if (head1->data < head2->data) {
+            sorting = head1;
+            head1 = sorting->next;
+          }
+          else {
+            sorting = head2;
+            head2 = sorting->next;
+          }
+        }
+        new_head = sorting;
+
+        while (head1 && head2) {
+          if (head1->data < head2->data) {
+            sorting->next = head1;
+            sorting = head1;
+            head1 = sorting->next;
+          }
+          else {
+            sorting->next = head2;
+            sorting = head2;
+            head2 = sorting->next;
+          }
+        }
+        if (head1 == NULL) sorting->next = head2;
+        if (head2 == NULL) sorting->next = head1;
+
+        return new_head;
+      }
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/get-the-value-of-the-node-at-a-specific-position-from-the-tail/problem][Get node Value]]
+    #+begin_src c++
+      int getNode(SinglyLinkedListNode* head, int positionFromTail) {
+
+        SinglyLinkedListNode *temp = head;
+        int count = 0;
+
+        while (head != NULL) {
+          head = head->next;
+
+          if (count < positionFromTail+1) {
+            count++;
+          }
+          else {
+            temp = temp->next;
+          }
+        }
+        return temp->data;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/delete-duplicate-value-nodes-from-a-sorted-linked-list/problem/][Delete duplicate value nodes from a sorted linked list]]
+    #+begin_src c++
+      SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* head) {
+
+        SinglyLinkedListNode *temp, *tempPrev, *temp2;
+
+        if (head == NULL) {
+          return head;
+        }
+        else {
+          tempPrev = head;
+          temp = tempPrev->next;
+
+          while (temp != NULL) {
+            if (tempPrev->data == temp->data) {
+              temp2 = temp;
+              temp = temp->next;
+              tempPrev->next = temp;
+              delete(temp2);
+
+            }
+            else {
+              temp = temp->next;
+              tempPrev = tempPrev->next;
+            }
+
+          }
+        }
+        return head;
+      }
+
+    #+end_src
+*** [[https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem][Find merge point of two joined linked list]]
+    #+begin_src c++
+      int findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+
+        int l1 = 0; int l2 = 0; int d;
+        SinglyLinkedListNode* p = head1;
+        SinglyLinkedListNode* q = head2;
+
+        while ((p != NULL) || (q != NULL)) {
+          if (p != NULL) {
+            p = p->next;
+            l1++;
+          }
+          else if (q != NULL) {
+            q = q->next;
+            l2++;
+          }
+        }
+        d = abs(l1 - l2);
+        p = head1; q = head2;
+
+        while (d) {
+          if (l1 > l2) {
+            p = p->next;
+          }
+          else {
+            q = q->next;
+          }
+          d--;
+        }
+
+        while (p != q) {
+          p = p->next;
+          q = q->next;
+        }
+
+        return p->data;
+      }
+    #+end_src
+** Medium
+*** [[https://www.hackerrank.com/challenges/detect-whether-a-linked-list-contains-a-cycle/problem][Cycle Detection]]
+    Uses hare and tortoise algorithm
+    #+begin_src c++
+      bool has_cycle(SinglyLinkedListNode* head) {
+
+        SinglyLinkedListNode *p = head;
+        SinglyLinkedListNode *q = head;
+
+        while (p && q && q->next) {
+
+          p = p->next;
+          q = q->next->next;
+
+          if (p == q)
+            return true;
+        }
+        return false;
+      }
+
+    #+end_src

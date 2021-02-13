@@ -1,0 +1,65 @@
+* DFS
+O(V+E)
+** solving to find any path from A to B in maze.
+Found path, may or may not be the shortes.
+   #+begin_src c++
+     #include <bits/stdc++.h>
+
+     using namespace std;
+
+     vector<int> adj[10000];         // adj[x] --> all vertices which have an edge with x
+     bool visited[10000];
+
+     bool find_path(int cur, int destination) {
+       if (cur == destination)
+         return true;
+
+       visited[cur] = true;
+       bool found = true;
+       for (int adj_vertex : adj[cur]) {
+         if (visited[adj_vertex])
+           continue;
+         if (find_path(adj_vertex, destination))
+           found = true;
+       }
+       return found;
+     }
+   #+end_src
+* BFS
+O(V+E)
+Using bfs we can find the shortest path of all vetrices from starting.
+We do this by using a queue
+
+#+begin_src c++
+  #include <bits/stdc++.h>
+
+  using namespace std;
+
+  vector<int> adj[10000];
+  bool visited[10000];
+  int dist[10000];
+
+  void bfs(int s) {
+    queue<int> q;
+    for (int i = 1; i < 10000; i++)
+      dist[i] = INT_MAX;
+
+    q.push(s);
+    dist[s] = 0;
+    visited[s] = true;
+
+    while (!q.empty()) {
+      int cur = q.front();
+      q.pop();
+
+      for (int adj_vertex : adj[cur]) {
+        if (visited[adj_vertex])
+          continue;
+        q.push(adj_vertex);
+        visited[adj_vertex] = true;
+        dist[adj_vertex] = dist[cur] + 1; // *imp*
+      }
+    }
+    // dist[x] stores the distance from s to x for all x
+  }
+#+end_src
